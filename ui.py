@@ -94,7 +94,7 @@ class MainWidget(QtWidgets.QMainWindow):
         self.close()
 
 
-if __name__ == '__main__':
+def launch():
     app = QtWidgets.QApplication(sys.argv)
     widget = MainWidget()
     widget.show()
