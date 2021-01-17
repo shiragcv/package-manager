@@ -5,6 +5,9 @@ class Context(object):
         self.shot = shot
         self.task = task
 
+    def __repr__(self):
+        return f"{self.project}:{self.shot}:{self.task}"
+
     def isvalid(self) -> bool:
         """
         Check if the context is valid

@@ -157,17 +157,22 @@ def get(context: core.Context, directory: str) -> dict:
     :return: <type 'dict'>
     """
 
-    return resolve(BASE_HIERARCHY, context, directory)
+    return _resolve(BASE_HIERARCHY, context, directory)
 
 
-def create(template: dict, directory: str) -> None:
+def create(template: dict, directory: str) -> dict:
     """
     Create the file, folder structure in template
 
     :param template: Template file
     :param directory: Root directory
-    :return: <type 'NoneType'>
+    :return: <type 'dict'>
     """
+
+    result = {
+        "status": True,
+        "message": ""
+    }
 
     for item in template if isinstance(template, list) else [template]:
         if item["type"] == "file":
@@ -186,3 +191,5 @@ def create(template: dict, directory: str) -> None:
 
         else:
             pass
+
+    return result
